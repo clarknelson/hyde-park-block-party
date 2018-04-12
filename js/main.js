@@ -79,7 +79,7 @@ $(document).ready(function(){
   }
 
   function effect3(){
-    var speed = 100;
+    var speed = 80;
     var $el = $('.graphic img');
     var all_colors = 'green orange purple cyan yellow';
     var colors = ['green', 'orange', 'purple', 'cyan', 'yellow', 'orange', 'cyan'];
@@ -99,6 +99,10 @@ $(document).ready(function(){
         $('.top').addClass('left');
         $('.bottom').addClass('right');
       }
+      if(i===3){
+        $('.top').addClass('left');
+        $('.bottom').addClass('right');
+      }
       if(i<4){
         $el.attr('src', 'img/'+color+'/'+color+i+'.jpg');
         setTimeout(function(){
@@ -112,9 +116,14 @@ $(document).ready(function(){
 
 
     function trigger_switch(){
+      clearTimeout(window.timeout_interval);
       flicker(colors[(color_index%colors.length)], 0);
       color_index=color_index+1;
+      window.timeout_interval = setTimeout(trigger_switch, 1500);
     }
+
+    window.timeout_interval = setTimeout(trigger_switch, 1500);
+
 
     var totalDistance = 0;
     var lastSeenAt = {x: null, y: null};
@@ -134,6 +143,19 @@ $(document).ready(function(){
     });
   }
 
+  function clear_animation(){
+    $(window).off('mousemove');
+    clearTimeout(window.timeout_interval);
+  }
+  $('#option0').click(function(){
+    clear_animation();
+    effect3();
+  });
+  $('#option1').click(function(){
+    clear_animation();
+    effect4();
+  });
+
   function effect4(){
     var speed = 100;
     var $el = $('.graphic img');
@@ -142,10 +164,10 @@ $(document).ready(function(){
     // var color_index = 0;
 
     var color_index = 0, index = 0;
-    var timeout_interval = setTimeout(tick, 1000);
+    window.timeout_interval = setTimeout(tick, 1000);
 
     function tick(){
-      clearTimeout(timeout_interval);
+      clearTimeout(window.timeout_interval);
       index=index+1;
       var color = colors[color_index%colors.length];
 
@@ -173,7 +195,7 @@ $(document).ready(function(){
 
       $el.attr('src', 'img/'+color+'/'+color+index+'.jpg');
 
-      timeout_interval = setTimeout(tick, 1000);
+      window.timeout_interval = setTimeout(tick, 1000);
     }
 
     var totalDistance = 0;

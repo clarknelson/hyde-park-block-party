@@ -139,6 +139,12 @@ a:hover{
   padding: 7.25vh;
 }
 
+.site-controls{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 .text h1,
 .text h2,
 .text h3,
