@@ -153,6 +153,15 @@ $(document).ready(function(){
     text.ratio = text.width / text.height;
 
     function calculate_mobile(){
+      if($('.desktop').length){
+        graphic.width = $('.graphic img').innerWidth();
+        graphic.height = $('.graphic img').innerHeight();
+        graphic.ratio = graphic.width / graphic.height;
+        text.width = $('.text').innerWidth();
+        text.height = $('.text').innerHeight();
+        text.ratio = text.width / text.height;
+      }
+
       var graphic_width = window.innerHeight * graphic.ratio;
       var text_width = ((text.height / window.innerHeight) * window.innerHeight) * text.ratio;
 
@@ -163,6 +172,8 @@ $(document).ready(function(){
         $('body').removeClass('mobile');
         $('body').addClass('desktop');
       }
+
+
     }
     $(window).resize(calculate_mobile);
     calculate_mobile();
