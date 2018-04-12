@@ -128,6 +128,7 @@ a:hover{
   overflow: scroll;
 }
 #viewport img{
+  width: auto;
   height: 100%;
 }
 #viewport .text{
@@ -141,14 +142,14 @@ a:hover{
 .text h2,
 .text h3,
 .text h4{
-  font-size: 5vh;
+  font-size: 7.25vh;
   /* font-size: 5vw; */
-  line-height: 0.85;
+  line-height: 0.9;
   letter-spacing: 0.032em;
 }
 
 .text .bottom{
-  margin-top: 0.5vh;
+  margin-top: 1vh;
 }
 
 .bottom h1,
