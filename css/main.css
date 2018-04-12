@@ -117,6 +117,9 @@ a:hover{
 }
 
 
+.mobile #viewport{
+  position: relative;
+}
 #viewport{
   position: fixed;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -127,16 +130,35 @@ a:hover{
   box-sizing: border-box;
   overflow: scroll;
 }
-#viewport img{
+.mobile #viewport .graphic{
+  height: auto;
+  width: 80vw;
+}
+#viewport .graphic img{
   display: block;
   width: auto;
   height: 100%;
 }
+.mobile #viewport .graphic img{
+  height: auto;
+  width: 100%;
+}
+
+/* .mobile #viewport img{
+  width: 100%;
+  height: auto;
+} */
 #viewport .text{
   position: absolute;
   top: 0;
   right: 0;
   padding: 7.25vh;
+}
+
+.mobile #viewport .text{
+  position: relative;
+  padding: 7vw;
+  padding-bottom: 0;
 }
 
 .site-controls{
@@ -155,8 +177,11 @@ a:hover{
   letter-spacing: 0.032em;
 }
 
-.text .bottom{
-  margin-top: 1vh;
+.mobile .text h1,
+.mobile .text h2,
+.mobile .text h3,
+.mobile .text h4{
+  font-size: 7.5vw;
 }
 
 .bottom h1,

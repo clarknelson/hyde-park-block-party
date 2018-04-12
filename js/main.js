@@ -141,6 +141,31 @@ $(document).ready(function(){
       lastSeenAt.x = event.clientX;
       lastSeenAt.y = event.clientY;
     });
+
+    var graphic = {width: null, height: null};
+    graphic.width = $('.graphic img').innerWidth();
+    graphic.height = $('.graphic img').innerHeight();
+    graphic.ratio = graphic.width / graphic.height;
+
+    var text = {width: null, height: null};
+    text.width = $('.text').innerWidth();
+    text.height = $('.text').innerHeight();
+    text.ratio = text.width / text.height;
+
+    function calculate_mobile(){
+      var graphic_width = window.innerHeight * graphic.ratio;
+      var text_width = ((text.height / window.innerHeight) * window.innerHeight) * text.ratio;
+
+      if((graphic_width + text_width) > window.innerWidth){
+        $('body').removeClass('desktop');
+        $('body').addClass('mobile');
+      } else {
+        $('body').removeClass('mobile');
+        $('body').addClass('desktop');
+      }
+    }
+    $(window).resize(calculate_mobile);
+    calculate_mobile();
   }
 
   function clear_animation(){
@@ -213,26 +238,6 @@ $(document).ready(function(){
       }
       lastSeenAt.x = event.clientX;
       lastSeenAt.y = event.clientY;
-    });
-
-    var graphic = {width: null, height: null};
-    graphic.width = $('.graphic img').innerWidth();
-    graphic.height = $('.graphic img').innerHeight();
-    graphic.ratio = graphic.width / graphic.height;
-
-    var text = {width: null, height: null};
-    text.width = $('.text').innerWidth();
-    text.height = $('.text').innerHeight();
-    text.ratio = text.width / text.height;
-
-    $(window).resize(function(){
-
-      var graphic_width = window.innerHeight * graphic.ratio;
-      var text_width =
-      console.log(graphic_width);
-      // console.log(graphic, text, window.innerWidth, window.innerHeight);
-      // console.log($('.graphic img').innerHeight(), , window.innerWidth, window.innerHeight);
-      // console.log($('.text').innerHeight()/window.innerHeight);
     });
   }
 
