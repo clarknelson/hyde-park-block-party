@@ -133,8 +133,8 @@ $(document).ready(function(){
     });
   }
 
-  effect1();
+  // effect1();
   // effect2();
-  // effect3();
+  effect3();
 
 });
