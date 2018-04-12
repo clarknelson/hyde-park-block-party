@@ -192,11 +192,31 @@ $(document).ready(function(){
       lastSeenAt.x = event.clientX;
       lastSeenAt.y = event.clientY;
     });
+
+    var graphic = {width: null, height: null};
+    graphic.width = $('.graphic img').innerWidth();
+    graphic.height = $('.graphic img').innerHeight();
+    graphic.ratio = graphic.width / graphic.height;
+
+    var text = {width: null, height: null};
+    text.width = $('.text').innerWidth();
+    text.height = $('.text').innerHeight();
+    text.ratio = text.width / text.height;
+
+    $(window).resize(function(){
+
+      var graphic_width = window.innerHeight * graphic.ratio;
+      var text_width =
+      console.log(graphic_width);
+      // console.log(graphic, text, window.innerWidth, window.innerHeight);
+      // console.log($('.graphic img').innerHeight(), , window.innerWidth, window.innerHeight);
+      // console.log($('.text').innerHeight()/window.innerHeight);
+    });
   }
 
   // effect1();
   // effect2();
-  // effect3();
-  effect4();
+  effect3();
+  // effect4();
 
 });
