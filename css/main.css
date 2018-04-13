@@ -129,11 +129,17 @@ a:hover{
   position: fixed;
   top: 0; left: 0; bottom: 0; right: 0;
 }
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background: white;
+}
 
 #viewport .graphic{
   height: 100vh;
   box-sizing: border-box;
-  overflow: scroll;
+  overflow: hidden;
 }
 .mobile #viewport .graphic{
   height: auto;
@@ -143,6 +149,9 @@ a:hover{
   display: block;
   width: auto;
   height: 100%;
+}
+#viewport .graphic img::-webkit-scrollbar {
+  display: none;
 }
 .mobile #viewport .graphic img{
   height: auto;
