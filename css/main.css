@@ -16,6 +16,7 @@ html {
     font-family: 'Calibre', sans-serif;
     font-size: 1em;
     line-height: 1.2;
+    overflow-x: hidden;
 }
 
 /*
@@ -116,10 +117,10 @@ a:hover{
   opacity: 0.75;
 }
 
-
 .seo{
-  position: absolute;
+  position: fixed;
   left: 500vw;
+  width: 100vw;
 }
 .mobile #viewport{
   position: relative;

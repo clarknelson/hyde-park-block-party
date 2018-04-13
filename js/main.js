@@ -101,6 +101,15 @@ $(document).ready(function(){
     }
     $(window).resize(calculate_mobile);
     calculate_mobile();
+
+
+    for(var color_i = 0; color_i<colors.length; color_i++){
+      for(var index_i =0; index_i < 4; index_i ++){
+        var foobar = new Image();
+        foobar.src = 'img/'+colors[color_i]+'/'+colors[color_i]+index_i+'.jpg';
+        // console.log(colors[color_i], index_i);
+      }
+    }
   }
 
   init();
