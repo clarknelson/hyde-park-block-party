@@ -117,6 +117,10 @@ a:hover{
 }
 
 
+.seo{
+  position: absolute;
+  left: 500vw;
+}
 .mobile #viewport{
   position: relative;
 }
