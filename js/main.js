@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     var $el = $('.graphic img');
     var all_colors = 'green orange purple cyan yellow';
-    var colors = ['green', 'orange', 'purple', 'cyan', 'yellow', 'orange', 'cyan'];
+    var colors = ['green', 'orange', 'purple', 'cyan', 'yellow'];
     var color_index = 0;
 
     function flicker(color, index){
@@ -102,14 +102,28 @@ $(document).ready(function(){
     $(window).resize(calculate_mobile);
     calculate_mobile();
 
-
+    // lazy load images
     for(var color_i = 0; color_i<colors.length; color_i++){
       for(var index_i =0; index_i < 4; index_i ++){
         var foobar = new Image();
         foobar.src = 'img/'+colors[color_i]+'/'+colors[color_i]+index_i+'.jpg';
-        // console.log(colors[color_i], index_i);
       }
     }
+
+    var disco_index = 0, disco_interval = null;
+    $('.text .top').hover(function(){
+
+      var $el = $(this);
+      disco_interval = setInterval(function(){
+        $el.removeClass(all_colors);
+        $el.addClass(colors[disco_index%colors.length]);
+        disco_index++;
+      }, (flicker_speed + ((flicker_speed*0.5) * Math.random())) );
+    }, function(){
+      clearInterval(disco_interval);
+      $(this).removeClass(all_colors);
+
+    });
   }
 
   init();
