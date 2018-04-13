@@ -114,14 +114,17 @@ $(document).ready(function(){
     $('.text .top').hover(function(){
 
       var $el = $(this);
-      disco_interval = setInterval(function(){
-        $el.removeClass(all_colors);
-        $el.addClass(colors[disco_index%colors.length]);
-        disco_index++;
-      }, (flicker_speed + ((flicker_speed*0.5) * Math.random())) );
+
+      $el.addClass('skew');
+      // disco_interval = setInterval(function(){
+      //   $el.removeClass(all_colors);
+      //   $el.addClass(colors[disco_index%colors.length]);
+      //   disco_index++;
+      // }, (flicker_speed + ((flicker_speed*0.5) * Math.random())) );
     }, function(){
-      clearInterval(disco_interval);
-      $(this).removeClass(all_colors);
+      $el.removeClass('skew');
+      // clearInterval(disco_interval);
+      // $(this).removeClass(all_colors);
 
     });
   }
