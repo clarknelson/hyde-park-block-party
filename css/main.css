@@ -11,8 +11,6 @@
    ========================================================================== */
 
 html {
-    background: #000;
-    color: #fff;
     font-family: 'Calibre', sans-serif;
     font-size: 1em;
     line-height: 1.2;
@@ -99,8 +97,9 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-
-
+body{
+  font-family: 'Franklin Gothic Std', sans-serif;
+}
 
 h1,h2,h3,h4,h5,h6,p{
   margin: 0;
@@ -109,92 +108,157 @@ a{
   display: inline-block;
   color: inherit;
   text-decoration: none;
-  transition: all 0.2s;
   opacity: 1;
 }
-a:hover{
-  opacity: 0.75;
+a:hover .demi,
+a:hover .heavy{
+  text-decoration: underline;
 }
-
+img{
+  width: 100%;
+}
+.demi{
+  font-weight: 600;
+}
+.heavy{
+  font-weight: 900;
+}
+.em-dash{
+  position: relative;
+  top: -0.05em;
+  text-decoration: none !important;
+}
 
 #viewport{
   position: fixed;
   top: 0; left: 0; bottom: 0; right: 0;
 }
 
-#viewport .graphic{
-  height: 100vh;
-  box-sizing: border-box;
-  overflow: scroll;
-}
-#viewport img{
-  height: 100%;
-}
-#viewport .text{
+#viewport .left,
+#viewport .right{
   position: absolute;
-  top: 0;
+  height: 100%;
+  width: 50%;
+}
+
+
+#viewport .left{
+  left: 0;
+  background: white;
+}
+#viewport .left svg{
+  max-height: 75%;
+  max-width: 75%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body.inverted #viewport .left svg .cls-1{
+  fill: white;
+}
+#viewport .right{
   right: 0;
-  padding: 7.25vh;
+  text-align: center;
+  background: black;
+}
+body.inverted #viewport .left{
+  background: black;
+}
+body.inverted #viewport .right{
+  background: white;
 }
 
-.text h1,
-.text h2,
-.text h3,
-.text h4{
-  font-size: 5vh;
-  /* font-size: 5vw; */
-  line-height: 0.85;
-  letter-spacing: 0.032em;
+#viewport .right h1,
+#viewport .right h2,
+#viewport .right h3,
+#viewport .right h4,
+#viewport .right h5,
+#viewport .right h6{
+  position: relative;
+  color: white;
+  font-size: 3vw;
+  text-transform: uppercase;
+}
+body.inverted #viewport .right h1,
+body.inverted #viewport .right h2,
+body.inverted #viewport .right h3,
+body.inverted #viewport .right h4,
+body.inverted #viewport .right h5,
+body.inverted #viewport .right h6{
+  color: black;
+}
+body.set-text-to-height #viewport .right h1,
+body.set-text-to-height #viewport .right h2,
+body.set-text-to-height #viewport .right h3,
+body.set-text-to-height #viewport .right h4,
+body.set-text-to-height #viewport .right h5,
+body.set-text-to-height #viewport .right h6{
+  font-size: 6vh;
+}
+body.set-text-to-width #viewport .right h1,
+body.set-text-to-width #viewport .right h2,
+body.set-text-to-width #viewport .right h3,
+body.set-text-to-width #viewport .right h4,
+body.set-text-to-width #viewport .right h5,
+body.set-text-to-width #viewport .right h6{
+  font-size: 3.5vw;
+}
+#viewport .right .text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+}
+#viewport .right .logo-grid{
+  position: absolute;
+  bottom: 0;
+  width: 75%;
+  left: 12.5%;
+  padding-bottom: 2.5%;
 }
 
-.text .bottom{
-  margin-top: 0.5vh;
-}
 
-.bottom h1,
-.bottom h2,
-.bottom h3,
-.bottom h4{
-  /*  */
-}
 
-.bottom.green{
-  color: #00FF00;
+@media screen and (max-width: 400px){
+  #viewport{
+    overflow: scroll;
+  }
+  #viewport .left,
+  #viewport .right{
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  #viewport .left img{
+    margin: 12.5%;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+  }
+  #viewport .right .text{
+    position: relative;
+    padding: 12.5%;
+    width: 75%;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+  }
+  #viewport .right h1,
+  #viewport .right h2,
+  #viewport .right h3,
+  #viewport .right h4,
+  #viewport .right h5,
+  #viewport .right h6{
+    font-size: 7.5vw;
+  }
+  #viewport .right .logo-grid{
+    position: relative;
+    flex-direction: column;
+  }
 }
-.bottom.orange{
-  color: #FF8000;
-}
-.bottom.purple{
-  color: #FF00FF;
-}
-.bottom.cyan{
-  color: #00FFFF;
-}
-.bottom.yellow{
-  color: #FFFF00;
-}
-
-.top.left h1,
-.top.left h2,
-.top.left h3,
-.top.left h4,
-.bottom.left h1,
-.bottom.left h2,
-.bottom.left h3,
-.bottom.left h4{
-  transform: skewX(27deg);
-}
-.top.right h1,
-.top.right h2,
-.top.right h3,
-.top.right h4,
-.bottom.right h1,
-.bottom.right h2,
-.bottom.right h3,
-.bottom.right h4{
-  transform: skewX(-27deg);
-}
-
 
 
 

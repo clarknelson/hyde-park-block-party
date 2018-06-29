@@ -1,5 +1,12 @@
 @font-face{
-  font-family: 'Calibre';
-  src: url('../fonts/Calibre-Bold.otf');
-  font-weight: bold;
+  font-family: 'Franklin Gothic Std';
+  src: url('../fonts/ITCFranklinGothicStd-Demi.otf');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'Franklin Gothic Std';
+  src: url('../fonts/ITCFranklinGothicStd-Hvy.otf');
+  font-weight: 900;
+  font-style: normal;
 }
