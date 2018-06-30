@@ -114,9 +114,6 @@ a:hover .demi,
 a:hover .heavy{
   text-decoration: underline;
 }
-img{
-  width: 100%;
-}
 .demi{
   font-weight: 600;
 }
@@ -145,6 +142,7 @@ img{
 #viewport .left{
   left: 0;
   background: white;
+  transition: all 0.2s;
 }
 #viewport .left svg{
   max-height: 75%;
@@ -153,6 +151,11 @@ img{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all 0.2s;
+}
+#viewport .left svg .cls-1{
+  fill: black;
+  transition: all 0.2s;
 }
 body.inverted #viewport .left svg .cls-1{
   fill: white;
@@ -161,6 +164,7 @@ body.inverted #viewport .left svg .cls-1{
   right: 0;
   text-align: center;
   background: black;
+  transition: all 0.2s;
 }
 body.inverted #viewport .left{
   background: black;
@@ -179,6 +183,7 @@ body.inverted #viewport .right{
   color: white;
   font-size: 3vw;
   text-transform: uppercase;
+  transition: all 0.2s;
 }
 body.inverted #viewport .right h1,
 body.inverted #viewport .right h2,
@@ -204,6 +209,48 @@ body.set-text-to-width #viewport .right h5,
 body.set-text-to-width #viewport .right h6{
   font-size: 3.5vw;
 }
+#viewport .right .controls{
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
+}
+#viewport .right .controls svg{
+  cursor: pointer;
+}
+#viewport .right .controls svg rect,
+#viewport .right .controls svg polygon{
+  fill: white;
+  transition: all 0.2s;
+}
+#viewport .right .play{
+  display: none;
+}
+#viewport .right .pause{
+  display: block;
+}
+body.paused #viewport .right .play{
+  display: block;
+}
+body.paused #viewport .right .pause{
+  display: none;
+}
+
+body.set-text-to-height #viewport .right .play,
+body.set-text-to-height #viewport .right .pause{
+  width: auto;
+  height: 5vh;
+}
+body.set-text-to-width #viewport .right .play,
+body.set-text-to-width #viewport .right .pause{
+  width: 5vw;
+  height: auto;
+}
+body.inverted #viewport .right svg polygon,
+body.inverted #viewport .right svg rect{
+  fill: black;
+}
+
+
 #viewport .right .text{
   position: absolute;
   top: 50%;
@@ -211,17 +258,73 @@ body.set-text-to-width #viewport .right h6{
   transform: translate(-50%, -50%);
   width: 75%;
 }
-#viewport .right .logo-grid{
+#viewport .right .logo-grid,
+#viewport .right .logo-preview{
   position: absolute;
   bottom: 0;
-  width: 75%;
-  left: 12.5%;
+  left: 50%;
+  transform: translateX(-50%);
   padding-bottom: 2.5%;
+  width: 75%;
+}
+#viewport .right .logo-preview img{
+  max-width: 100%;
+  max-height: 100%;
+}
+body.set-text-to-height #viewport .right .logo-preview{
+  height: 20vh;
+}
+
+body.set-text-to-width #viewport .right .logo-preview{
+  height: 20vw;
+}
+
+
+#viewport .right .logo-grid{
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+  transition: all 0.2s;
+}
+#viewport .right .logo-grid img{
+  display: block;
+  align-self: center;
+}
+#viewport .right .logo-grid img:nth-of-type(1){
+  width: 7.3746313%;
+}
+#viewport .right .logo-grid img:nth-of-type(2){
+  width: 7.3746313%;
+}
+#viewport .right .logo-grid img:nth-of-type(3){
+  width: 13.0383481%;
+}
+#viewport .right .logo-grid img:nth-of-type(4){
+  width: 26.1356932%;
+}
+#viewport .right .logo-grid img:nth-of-type(5){
+  width: 18.6430678%;
+}
+#viewport .right .logo-grid.black{
+  opacity: 1;
+}
+body.inverted #viewport .right .logo-grid.white{
+  opacity: 1;
+}
+body.inverted #viewport .right .logo-grid.black{
+  opacity: 0;
+}
+body.set-text-to-width #viewport .right .logo-grid{
+  width: 37.5vw;
+}
+body.set-text-to-height #viewport .right .logo-grid{
+  height: 10vh;
 }
 
 
 
-@media screen and (max-width: 400px){
+
+@media screen and (max-width: 600px){
   #viewport{
     overflow: scroll;
   }
@@ -231,12 +334,17 @@ body.set-text-to-width #viewport .right h6{
     width: 100%;
     height: auto;
   }
-  #viewport .left img{
+  #viewport .left a{
+    width: 100%;
+    height: 100%;
+  }
+  #viewport .left svg{
     margin: 12.5%;
     position: relative;
     top: 0;
     left: 0;
     transform: translate(0);
+    max-height: none;
   }
   #viewport .right .text{
     position: relative;
@@ -252,12 +360,16 @@ body.set-text-to-width #viewport .right h6{
   #viewport .right h4,
   #viewport .right h5,
   #viewport .right h6{
-    font-size: 7.5vw;
+    font-size: 7vw;
   }
   #viewport .right .logo-grid{
     position: relative;
     flex-direction: column;
   }
+  #viewport .right .logo-grid img{
+    width: 100%;
+  }
+
 }
 
 
