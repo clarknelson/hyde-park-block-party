@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-  <g fill="none" fill-rule="evenodd">
-    <rect width="40" height="120" fill="#FFFFFF"/>
-    <rect width="40" height="120" x="80" fill="#FFFFFF"/>
-  </g>
-</svg>
+<svg height="120" viewBox="0 0 120 120" width="120" xmlns="http://www.w3.org/2000/svg"><g fill="#fff" fill-rule="evenodd"><path d="m0 0h40v120h-40z"/><path d="m80 0h40v120h-40z"/></g></svg>

@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-  <polygon fill="#FFFFFF" fill-rule="evenodd" points="120 60 0 120 0 0"/>
-</svg>
+<svg height="120" viewBox="0 0 120 120" width="120" xmlns="http://www.w3.org/2000/svg"><path d="m120 60-120 60v-120z" fill="#fff" fill-rule="evenodd"/></svg>

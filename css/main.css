@@ -120,6 +120,9 @@ a:hover .heavy{
 .heavy{
   font-weight: 900;
 }
+.demi, .heavy{
+  letter-spacing: 0.02em;
+}
 .em-dash{
   position: relative;
   top: -0.05em;
@@ -213,6 +216,7 @@ body.set-text-to-width #viewport .right h6{
   position: absolute;
   top: 2.5%;
   right: 2.5%;
+  z-index: 100;
 }
 #viewport .right .controls svg{
   cursor: pointer;
@@ -225,6 +229,7 @@ body.set-text-to-width #viewport .right h6{
 #viewport .right .play{
   display: none;
 }
+
 #viewport .right .pause{
   display: block;
 }
@@ -327,6 +332,8 @@ body.set-text-to-height #viewport .right .logo-grid{
 @media screen and (max-width: 600px){
   #viewport{
     overflow: scroll;
+    display: flex;
+    flex-direction: column;
   }
   #viewport .left,
   #viewport .right{
@@ -349,6 +356,7 @@ body.set-text-to-height #viewport .right .logo-grid{
   #viewport .right .text{
     position: relative;
     padding: 12.5%;
+    padding-bottom: 25%;
     width: 75%;
     top: 0;
     left: 0;
@@ -363,11 +371,18 @@ body.set-text-to-height #viewport .right .logo-grid{
     font-size: 7vw;
   }
   #viewport .right .logo-grid{
-    position: relative;
-    flex-direction: column;
+    width: 75vw;
+    padding-bottom: 10%;
   }
-  #viewport .right .logo-grid img{
-    width: 100%;
+  #viewport .right .play,
+  #viewport .right .pause{
+    width: 5vw;
+    height: auto;
+  }
+  #viewport .right .controls{
+    position: absolute;
+    top: 7.5%;
+    right: 7.5%;
   }
 
 }
