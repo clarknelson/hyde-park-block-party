@@ -21,33 +21,46 @@ $(document).ready(function(){
   $(window).resize(_.throttle(calculate,100));
 
 
-  var paused = false;
-  function loop() {
-    var rand = Math.round(Math.random() * (2000 - 1000)) + 1000;
-    setTimeout(function() {
-      if(!paused){
-        $('body').toggleClass('inverted');
-        loop();
-      }
-    }, rand);
-  }
-  loop();
-
-  $('#viewport .right .controls .pause').click(function(e){
-    $('body').addClass('paused');
-    paused = true;
-  });
-  $('#viewport .right .controls .play').click(function(e){
-    $('body').removeClass('paused');
-    loop();
-    paused = false;
-  });
-
-  $('#viewport .right .logo-grid img').hover(function(){
-    // $()
+  $('#viewport .left').hover(function(){
+    $('body').addClass('inverted');
   }, function(){
-
+    $('body').removeClass('inverted');
   });
+
+  $('#viewport .logo-grid img').hover(function(){
+    $('body').addClass('active-logo');
+    var src = $(this).attr('src');
+    $('.logo-preview img').attr('src', src.replace('_black', '_white'));
+  }, function(){
+    $('body').removeClass('active-logo');
+  });
+  // var paused = false;
+  // function loop() {
+  //   var rand = Math.round(Math.random() * (2000 - 1000)) + 1000;
+  //   setTimeout(function() {
+  //     if(!paused){
+  //       $('body').toggleClass('inverted');
+  //       loop();
+  //     }
+  //   }, rand);
+  // }
+  // loop();
+
+  // $('#viewport .right .controls .pause').click(function(e){
+  //   $('body').addClass('paused');
+  //   paused = true;
+  // });
+  // $('#viewport .right .controls .play').click(function(e){
+  //   $('body').removeClass('paused');
+  //   loop();
+  //   paused = false;
+  // });
+
+  // $('#viewport .right .logo-grid img').hover(function(){
+  //   // $()
+  // }, function(){
+
+  // });
 
 
 });
