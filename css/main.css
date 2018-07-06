@@ -147,6 +147,10 @@ a:hover .heavy{
   background: white;
   transition: all 0.2s;
 }
+
+body.active-logo #viewport .left svg{
+  display: none;
+}
 #viewport .left svg{
   max-height: 75%;
   max-width: 75%;
@@ -263,53 +267,89 @@ body.inverted #viewport .right svg rect{
   transform: translate(-50%, -50%);
   width: 75%;
 }
-#viewport .right .logo-grid,
-#viewport .right .logo-preview{
+#viewport .logo-grid{
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
-  padding-bottom: 2.5%;
-  width: 75%;
-}
-#viewport .right .logo-preview img{
-  max-width: 100%;
-  max-height: 100%;
-}
-body.set-text-to-height #viewport .right .logo-preview{
-  height: 20vh;
-}
-
-body.set-text-to-width #viewport .right .logo-preview{
-  height: 20vw;
+  transform: translateX(-50%) scale(0.75);
+  width: 100%;
 }
 
 
-#viewport .right .logo-grid{
-  display: flex;
-  justify-content: space-between;
+body.set-text-to-height #viewport .logo-preview{
+  /* height: 20vh; */
+}
+body.set-text-to-width #viewport .logo-preview{
+  /* height: 20vw; */
+}
+
+#viewport .logo-grid{
   opacity: 0;
   transition: all 0.2s;
 }
-#viewport .right .logo-grid img{
+
+#viewport .logo-grid .row{
+  display: flex;
+  justify-content: space-between;
+}
+#viewport .logo-grid img{
   display: block;
   align-self: center;
 }
-#viewport .right .logo-grid img:nth-of-type(1){
-  width: 7.3746313%;
+
+#viewport .right .logo-grid .row:nth-of-type(1){
+  padding-bottom: 3%;
 }
-#viewport .right .logo-grid img:nth-of-type(2){
-  width: 7.3746313%;
+#viewport .right .logo-grid .row:nth-of-type(1) img:nth-of-type(1){
+  width: 20%;
 }
-#viewport .right .logo-grid img:nth-of-type(3){
-  width: 13.0383481%;
+#viewport .right .logo-grid .row:nth-of-type(1) img:nth-of-type(2){
+  width: 13%;
 }
-#viewport .right .logo-grid img:nth-of-type(4){
-  width: 26.1356932%;
+#viewport .right .logo-grid .row:nth-of-type(1) img:nth-of-type(3){
+  width: 22%;
 }
-#viewport .right .logo-grid img:nth-of-type(5){
-  width: 18.6430678%;
+#viewport .right .logo-grid .row:nth-of-type(1) img:nth-of-type(4){
+  width: 14%;
 }
+
+#viewport .right .logo-grid .row:nth-of-type(2) img:nth-of-type(1){
+  width: 10%;
+}
+#viewport .right .logo-grid .row:nth-of-type(2) img:nth-of-type(2){
+  width: 18%;
+}
+#viewport .right .logo-grid .row:nth-of-type(2) img:nth-of-type(3){
+  width: 12%;
+}
+#viewport .right .logo-grid .row:nth-of-type(2) img:nth-of-type(4){
+  width: 30%;
+}
+
+
+
+#viewport .logo-preview{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none; 
+}
+body.active-logo #viewport .logo-preview{
+  opacity: 1;
+}
+#viewport .logo-preview img{
+  max-width: 100%;
+  max-height: 100%;
+}
+body.set-text-to-width #viewport .logo-grid{
+  width: 50vw;
+}
+body.set-text-to-height #viewport .logo-grid{
+  width: 100vh;
+}
+
 #viewport .right .logo-grid.black{
   opacity: 1;
 }
@@ -319,11 +359,14 @@ body.inverted #viewport .right .logo-grid.white{
 body.inverted #viewport .right .logo-grid.black{
   opacity: 0;
 }
-body.set-text-to-width #viewport .right .logo-grid{
-  width: 37.5vw;
+#viewport .left .logo-grid.white{
+  opacity: 1;
 }
-body.set-text-to-height #viewport .right .logo-grid{
-  height: 10vh;
+body.inverted #viewport .left .logo-grid.white{
+  opacity: 0;
+}
+body.inverted #viewport .left .logo-grid.black{
+  opacity: 1;
 }
 
 
