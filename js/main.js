@@ -26,14 +26,6 @@ $(document).ready(function(){
   }, function(){
     $('body').removeClass('inverted');
   });
-
-  $('#viewport .logo-grid img').hover(function(){
-    $('body').addClass('active-logo');
-    var src = $(this).attr('src');
-    $('.logo-preview img').attr('src', src.replace('_black', '_white'));
-  }, function(){
-    $('body').removeClass('active-logo');
-  });
   // var paused = false;
   // function loop() {
   //   var rand = Math.round(Math.random() * (2000 - 1000)) + 1000;
