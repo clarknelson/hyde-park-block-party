@@ -11,12 +11,9 @@
    ========================================================================== */
 
 html {
-    background: #000;
-    color: #fff;
     font-family: 'Calibre', sans-serif;
     font-size: 1em;
     line-height: 1.2;
-    overflow-x: hidden;
 }
 
 /*
@@ -100,8 +97,9 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-
-
+body{
+  font-family: 'Franklin Gothic Std', sans-serif;
+}
 
 h1,h2,h3,h4,h5,h6,p{
   margin: 0;
@@ -110,152 +108,284 @@ a{
   display: inline-block;
   color: inherit;
   text-decoration: none;
+  opacity: 1;
+}
+a:hover .demi,
+a:hover .heavy{
+  text-decoration: underline;
+}
+.demi{
+  font-weight: 600;
+}
+.heavy{
+  font-weight: 900;
+}
+.demi, .heavy{
+  letter-spacing: 0.02em;
+}
+.em-dash{
+  position: relative;
+  top: -0.05em;
+  text-decoration: none !important;
 }
 
-.seo{
-  position: fixed;
-  left: 500vw;
-  width: 100vw;
-}
-.mobile #viewport{
-  position: relative;
-}
 #viewport{
   position: fixed;
   top: 0; left: 0; bottom: 0; right: 0;
 }
-::-webkit-scrollbar {
-  width: 0.5rem;
+
+#viewport .left,
+#viewport .right{
+  position: absolute;
+  height: 100%;
+  width: 50%;
 }
-::-webkit-scrollbar-thumb {
+
+
+#viewport .left{
+  left: 0;
+  background: white;
+  transition: all 0.2s;
+}
+#viewport .left svg{
+  max-height: 75%;
+  max-width: 75%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s;
+}
+#viewport .left svg .cls-1{
+  fill: black;
+  transition: all 0.2s;
+}
+body.inverted #viewport .left svg .cls-1{
+  fill: white;
+}
+#viewport .right{
+  right: 0;
+  text-align: center;
+  background: black;
+  transition: all 0.2s;
+}
+body.inverted #viewport .left{
+  background: black;
+}
+body.inverted #viewport .right{
   background: white;
 }
 
-#viewport .graphic{
-  height: 100vh;
-  box-sizing: border-box;
-  overflow: hidden;
+#viewport .right h1,
+#viewport .right h2,
+#viewport .right h3,
+#viewport .right h4,
+#viewport .right h5,
+#viewport .right h6{
+  position: relative;
+  color: white;
+  font-size: 3vw;
+  text-transform: uppercase;
+  transition: all 0.2s;
 }
-.mobile #viewport .graphic{
-  height: auto;
-  width: 80vw;
+body.inverted #viewport .right h1,
+body.inverted #viewport .right h2,
+body.inverted #viewport .right h3,
+body.inverted #viewport .right h4,
+body.inverted #viewport .right h5,
+body.inverted #viewport .right h6{
+  color: black;
 }
-#viewport .graphic img{
-  display: block;
-  width: auto;
-  height: 100%;
+body.set-text-to-height #viewport .right h1,
+body.set-text-to-height #viewport .right h2,
+body.set-text-to-height #viewport .right h3,
+body.set-text-to-height #viewport .right h4,
+body.set-text-to-height #viewport .right h5,
+body.set-text-to-height #viewport .right h6{
+  font-size: 6vh;
 }
-#viewport .graphic img::-webkit-scrollbar {
+body.set-text-to-width #viewport .right h1,
+body.set-text-to-width #viewport .right h2,
+body.set-text-to-width #viewport .right h3,
+body.set-text-to-width #viewport .right h4,
+body.set-text-to-width #viewport .right h5,
+body.set-text-to-width #viewport .right h6{
+  font-size: 3.5vw;
+}
+#viewport .right .controls{
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
+  z-index: 100;
+}
+#viewport .right .controls svg{
+  cursor: pointer;
+}
+#viewport .right .controls svg rect,
+#viewport .right .controls svg polygon{
+  fill: white;
+  transition: all 0.2s;
+}
+#viewport .right .play{
   display: none;
 }
-.mobile #viewport .graphic img{
-  height: auto;
-  width: 100%;
+
+#viewport .right .pause{
+  display: block;
+}
+body.paused #viewport .right .play{
+  display: block;
+}
+body.paused #viewport .right .pause{
+  display: none;
 }
 
-/* .mobile #viewport img{
-  width: 100%;
+body.set-text-to-height #viewport .right .play,
+body.set-text-to-height #viewport .right .pause{
+  width: auto;
+  height: 5vh;
+}
+body.set-text-to-width #viewport .right .play,
+body.set-text-to-width #viewport .right .pause{
+  width: 5vw;
   height: auto;
-} */
-#viewport .text{
+}
+body.inverted #viewport .right svg polygon,
+body.inverted #viewport .right svg rect{
+  fill: black;
+}
+
+
+#viewport .right .text{
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 7.25vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
 }
-
-.mobile #viewport .text{
-  position: relative;
-  padding: 7vw;
-  padding-bottom: 0;
-}
-
-.site-controls{
+#viewport .right .logo-grid,
+#viewport .right .logo-preview{
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 2.5%;
+  width: 75%;
+}
+#viewport .right .logo-preview img{
+  max-width: 100%;
+  max-height: 100%;
+}
+body.set-text-to-height #viewport .right .logo-preview{
+  height: 20vh;
 }
 
-.text h1,
-.text h2,
-.text h3,
-.text h4{
-  font-size: 7.25vh;
-  /* font-size: 5vw; */
-  line-height: 0.9;
-  letter-spacing: 0.032em;
+body.set-text-to-width #viewport .right .logo-preview{
+  height: 20vw;
 }
 
-.mobile .text h1,
-.mobile .text h2,
-.mobile .text h3,
-.mobile .text h4{
-  font-size: 7.5vw;
+
+#viewport .right .logo-grid{
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+  transition: all 0.2s;
+}
+#viewport .right .logo-grid img{
+  display: block;
+  align-self: center;
+}
+#viewport .right .logo-grid img:nth-of-type(1){
+  width: 7.3746313%;
+}
+#viewport .right .logo-grid img:nth-of-type(2){
+  width: 7.3746313%;
+}
+#viewport .right .logo-grid img:nth-of-type(3){
+  width: 13.0383481%;
+}
+#viewport .right .logo-grid img:nth-of-type(4){
+  width: 26.1356932%;
+}
+#viewport .right .logo-grid img:nth-of-type(5){
+  width: 18.6430678%;
+}
+#viewport .right .logo-grid.black{
+  opacity: 1;
+}
+body.inverted #viewport .right .logo-grid.white{
+  opacity: 1;
+}
+body.inverted #viewport .right .logo-grid.black{
+  opacity: 0;
+}
+body.set-text-to-width #viewport .right .logo-grid{
+  width: 37.5vw;
+}
+body.set-text-to-height #viewport .right .logo-grid{
+  height: 10vh;
 }
 
-.bottom h1,
-.bottom h2,
-.bottom h3,
-.bottom h4{
-  /*  */
-}
 
-.bottom.green{
-  color: #00FF00;
-}
-.bottom.orange{
-  color: #FF8000;
-}
-.bottom.purple{
-  color: #FF00FF;
-}
-.bottom.cyan{
-  color: #00FFFF;
-}
-.bottom.yellow{
-  color: #FFFF00;
-}
 
-.top.skew h1{
-  /* transform: skewX(27deg); */
-}
-.top.green{
-  color: #00FF00;
-}
-.top.orange{
-  color: #FF8000;
-}
-.top.purple{
-  color: #FF00FF;
-}
-.top.cyan{
-  color: #00FFFF;
-}
-.top.yellow{
-  color: #FFFF00;
-}
 
-.top.left h1,
-.top.left h2,
-.top.left h3,
-.top.left h4,
-.bottom.left h1,
-.bottom.left h2,
-.bottom.left h3,
-.bottom.left h4{
-  transform: skewX(27deg);
-}
-.top.right h1,
-.top.right h2,
-.top.right h3,
-.top.right h4,
-.bottom.right h1,
-.bottom.right h2,
-.bottom.right h3,
-.bottom.right h4{
-  transform: skewX(-27deg);
-}
+@media screen and (max-width: 600px){
+  #viewport{
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+  #viewport .left,
+  #viewport .right{
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  #viewport .left a{
+    width: 100%;
+    height: 100%;
+  }
+  #viewport .left svg{
+    margin: 12.5%;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+    max-height: none;
+  }
+  #viewport .right .text{
+    position: relative;
+    padding: 12.5%;
+    padding-bottom: 25%;
+    width: 75%;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+  }
+  #viewport .right h1,
+  #viewport .right h2,
+  #viewport .right h3,
+  #viewport .right h4,
+  #viewport .right h5,
+  #viewport .right h6{
+    font-size: 7vw;
+  }
+  #viewport .right .logo-grid{
+    width: 75vw;
+    padding-bottom: 10%;
+  }
+  #viewport .right .play,
+  #viewport .right .pause{
+    width: 5vw;
+    height: auto;
+  }
+  #viewport .right .controls{
+    position: absolute;
+    top: 7.5%;
+    right: 7.5%;
+  }
 
+}
 
 
 
