@@ -245,6 +245,7 @@ body.set-text-to-width #viewport .right h6{
 }
 #viewport .logo-preview{
   opacity: 0;
+  transition: all 0.2s ease;
   pointer-events: none;
   position: fixed;
   background: black;
