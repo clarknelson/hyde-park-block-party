@@ -26,6 +26,20 @@ $(document).ready(function(){
   }, function(){
     $('body').removeClass('inverted');
   });
+
+  $('#viewport .logo-grid img').mousemove(function(e){
+    $('.logo-preview img').attr('src', $(this).attr('src'));
+    $('.logo-preview').css({
+      opacity: 1,
+      left: e.clientX,
+      top: e.clientY,
+    });
+
+    console.log(e, e.clientX, e.screenY);  
+  });
+  $('#viewport .logo-grid img').mouseout(function(e){
+    $('.logo-preview').css({opacity: 0});
+  });
   // var paused = false;
   // function loop() {
   //   var rand = Math.round(Math.random() * (2000 - 1000)) + 1000;
